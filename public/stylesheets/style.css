@@ -1,8 +1,88 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html {
+  font-size: 16px;
 }
 
-a {
-  color: #00B7FF;
+body,
+ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+ul {
+  list-style: none;
+}
+.l-grid {
+  display: grid;
+  grid-gap: 10px;
+}
+
+#mapid {
+  min-height: 550px;
+}
+
+.title-wrapper {
+  grid-area: header;
+}
+
+.input-wrapper {
+  justify-self: stretch;
+  grid-auto-flow: column;
+}
+
+.input-wrapper__input {
+  border-radius: 13px;
+  padding: 1rem;
+  font-size: 2em;
+}
+
+.input-wrapper__button {
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+.map-wrapper {
+  align-self: center;
+  grid-area: main;
+}
+
+.addressList {
+  background-color: rgb(131, 131, 131);
+  grid-area: list;
+  font-size: 1.3rem;
+  font-weight: 600;
+  grid-template-rows: auto auto;
+}
+
+.addressList > h2 {
+  padding-left: 10px;
+  align-self: center;
+}
+
+.addressList > ul > li {
+  border-bottom: 1px solid rgb(175, 175, 175);
+}
+
+.addressList > ul > li:hover {
+  cursor: pointer;
+  background-color: rgb(175, 175, 175);
+}
+
+.addressList > ul > :first-child {
+  border-top: 1px solid rgb(175, 175, 175);
+}
+
+.address-link {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.content--grid {
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-areas:
+    'header header header header header header header header'
+    'main main main main main list list list'
+    'main main main main main list list list';
 }

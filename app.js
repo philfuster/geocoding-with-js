@@ -1,9 +1,9 @@
-var createError = require('http-errors');
-var express = require('express');
-var session = require('express-session');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const session = require('express-session');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const debug = require('debug');
 
 /*
@@ -14,7 +14,10 @@ const sess = {
   secret: 'Phil is cool... duh',
   resave: false,
   saveUninitialized: false,
-  cookie: {},
+  cookie: {
+    Secure: true,
+    SameSite: 'none',
+  },
 };
 // Binding debug's output to the console.
 // Initializing Loggers
@@ -22,7 +25,7 @@ debug.log = console.log.bind(console);
 const log = debug('geocoding:app');
 
 // Router declaration
-var indexRouter = require('./routes/index');
+const indexRouter = require('./routes/index');
 
 /*
   === Function Definitions ===
@@ -35,9 +38,10 @@ function errorHandler(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+  next();
 }
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -60,5 +64,7 @@ app.use(function (req, res, next) {
 
 // error handler
 app.use(errorHandler);
+
+log('Geocoding Application started...');
 
 module.exports = app;
