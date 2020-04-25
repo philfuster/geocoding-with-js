@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', function (req, res, next) {
   res.render('index', {
     title: 'Geocoding with Javascript',
-    description: 'Featuring Leafletjs and MapBox',
+    description: 'Featuring Mapbox GL JS',
   });
 });
 

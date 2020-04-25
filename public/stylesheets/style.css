@@ -16,8 +16,9 @@ ul {
   grid-gap: 10px;
 }
 
-#mapid {
+#map {
   min-height: 550px;
+  min-width: 550px;
 }
 
 .title-wrapper {
